@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>iByte: Computers Made Easy</title>
+    <link rel="stylesheet" type="text/css" 
+      href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ asset('common.css', 'css') }}" rel="stylesheet" type="text/css">
+    <style>
+      html,body, main {
+        height: 100%;
+        min-height: 100%;
+      }
+    </style>
+    {% block head %}
+
+    {% endblock %}
+  </head>
+
+  <body>
+    <header>
+      <nav class="grey darken-3">
+        Navbar goes here
+      </nav>
+    </header>
+    <main>
+      {% block main %}
+
+      {% endblock %}
+    </main>
+    <footer>
+      Copyright © 2017
+    </footer>
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    {% block scripts %}
+    {% endblock %}
+  </body>
+</html>
