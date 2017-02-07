@@ -5,10 +5,11 @@ iByte Computer Store
    :alt: Join the chat at https://gitter.im/ibyte-mdc-project/Lobby
    :target: https://gitter.im/ibyte-mdc-project/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-Welcome to the Silex Skeleton - a fully-functional Silex application that you
-can use as the skeleton for your new applications.
+Welcome to iByte Computer Store's Web App.
 
-This document contains information on how to start using the Silex Skeleton.
+This repo is based on the Silex framework. It uses Silex and Symfony to provide a light MVC framework.
+
+This document contains information on how to start using the iByte Computer Store Web App.
 
 Creating a Silex Application
 ----------------------------
