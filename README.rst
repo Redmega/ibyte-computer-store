@@ -1,4 +1,4 @@
-Silex Skeleton
+iByte Computer Store
 ==============
 
 .. image:: https://badges.gitter.im/ibyte-mdc-project/Lobby.svg
