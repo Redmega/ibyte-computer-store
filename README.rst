@@ -1,6 +1,10 @@
 Silex Skeleton
 ==============
 
+.. image:: https://badges.gitter.im/ibyte-mdc-project/Lobby.svg
+   :alt: Join the chat at https://gitter.im/ibyte-mdc-project/Lobby
+   :target: https://gitter.im/ibyte-mdc-project/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
 Welcome to the Silex Skeleton - a fully-functional Silex application that you
 can use as the skeleton for your new applications.
 
