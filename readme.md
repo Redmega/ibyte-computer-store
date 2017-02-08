@@ -1,14 +1,16 @@
 # iByte Computer Store
 
-+[![Gitter](https://badges.gitter.im/ibyte-mdc-project/Lobby.svg)](https://gitter.im/ibyte-mdc-project/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/ibyte-mdc-project/Lobby.svg)](https://gitter.im/ibyte-mdc-project/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Welcome to iByte Computer Store's Web App.
 
 To set up your workspace either use the Homestead VM or ensure XAMPP is installed along with PHP7.0, Composer and Memcached.
 
-1. cd `/path/to/this/repo`
+1. `cd /path/to/this/repo`
 2. run `composer install`
-3. run `php artisan migrate --seed`
+3. run `cp .env.example .env`
+4. modify .env using your local database info
+5. run `php artisan migrate --seed`
 
 # Lumen PHP Framework
 
