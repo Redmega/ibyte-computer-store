@@ -3,6 +3,11 @@ machine:
     America/New_York
   php:
     version: 7.0.7
+  environment:
+    DB_URL: 127.0.0.1
+    DB_NAME: circle_test
+    DB_USER: ubuntu
+    APP_KEY: base64:1111111111111111111111111111111111111111111=
 dependencies:
   post:
     - php artisan migrate --seed --force --no-interaction --env=testing

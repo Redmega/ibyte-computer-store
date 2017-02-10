@@ -27,9 +27,5 @@
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="database"/>
         <env name="QUEUE_DRIVER" value="sync"/>
-        <env name="DB_URL" value="127.0.0.1"/>
-        <env name="DB_NAME" value="circle_test"/>
-        <env name="DB_USER" value="ubuntu"/>
-        <env name="APP_KEY" value="base64:1111111111111111111111111111111111111111111="/>
     </php>
 </phpunit>
