@@ -1,8 +1,8 @@
 machine:
   timezone:
-    America/New York
+    America/New_York
   php:
-    version: 5.5.11
+    version: 7.0.15
 dependencies:
   post:
     - php artisan migrate --seed
