@@ -1,0 +1,8 @@
+machine:
+  timezone:
+    America/New York
+  php:
+    version: 5.5.11
+dependencies:
+  post:
+    - php artisan migrate --seed
