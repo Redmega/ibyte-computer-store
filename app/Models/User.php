@@ -18,7 +18,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'first_name', 'last_name', 'email', 'admin'
     ];
 
     /**
@@ -29,4 +29,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+
+    /**
+    * Get the users' addresses
+    *
+    * TODO: Make Address model
+    * @return Address[]
+    */
+    /*
+    public function addresses() {
+       return $this->hasMany('App\Models\Address');
+   } */
 }
