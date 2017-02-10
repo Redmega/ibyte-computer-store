@@ -1,0 +1,10 @@
+machine:
+  timezone:
+    America/New_York
+  php:
+    version: 7.0.7
+  environment:
+    APP_ENV: testing
+dependencies:
+  post:
+    - php artisan migrate --seed --force --no-interaction --env=testing

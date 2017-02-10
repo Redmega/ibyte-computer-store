@@ -1,6 +1,6 @@
 # iByte Computer Store
 
-[![Gitter](https://badges.gitter.im/ibyte-mdc-project/Lobby.svg)](https://gitter.im/ibyte-mdc-project/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![CircleCI](https://circleci.com/gh/Redmega/ibyte-computer-store.svg?style=shield&circle-token=ef3cc4c8502a446dadd64db412f936b9ec58efbf)](https://circleci.com/gh/Redmega/ibyte-computer-store)
 
 Welcome to iByte Computer Store's Web App.
 
