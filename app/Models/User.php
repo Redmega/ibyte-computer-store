@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models as Models;
 use Illuminate\Auth\Authenticatable;
-use Laravel\Lumen\Auth\Authorizable;
+use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
