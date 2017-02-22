@@ -30,7 +30,9 @@ class AddOrdersForeignKeys extends Migration
     public function down()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->dropForeign(['user_id','build_id','status_id']);
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['build_id']);
+            $table->dropForeign(['status_id']);
         });
     }
 }
