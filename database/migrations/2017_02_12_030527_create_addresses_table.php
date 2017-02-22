@@ -25,8 +25,6 @@ class CreateAddressesTable extends Migration
             $table->string('type');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')
-              ->onDelete('cascade');
             $table->unique(['id', 'user_id','street','unit']);
         });
     }

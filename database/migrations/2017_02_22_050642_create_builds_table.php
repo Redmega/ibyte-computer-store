@@ -23,18 +23,6 @@ class CreateBuildsTable extends Migration
             $table->integer('ssd_id')->unsigned()->nullable();
             $table->integer('ram_id')->unsigned()->nullable();
             $table->timestamps();
-
-            /**
-            * Enable foreign key constraints on products. A product cannot be
-            * deleted if a build exists which contains it.
-            */
-            $table->foreign('tow_id')->references('id')->on('products');
-            $table->foreign('cpu_id')->references('id')->on('products');
-            $table->foreign('gpu_id')->references('id')->on('products');
-            $table->foreign('psu_id')->references('id')->on('products');
-            $table->foreign('hdd_id')->references('id')->on('products');
-            $table->foreign('ssd_id')->references('id')->on('products');
-            $table->foreign('ram_id')->references('id')->on('products');
         });
     }
 

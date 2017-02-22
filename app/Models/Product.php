@@ -1,4 +1,4 @@
-<?php
+ q<?php
 
 namespace App\Models;
 
@@ -14,14 +14,5 @@ class Product extends Model
     */
     public function stock() {
         return $this->hasOne(Models\Stock::class);
-    }
-
-    /**
-    * Get the builds.
-    *
-    * @return Build[]
-    */
-    public function builds() {
-        return $this->hasMany(Models\Build::class);
     }
 }

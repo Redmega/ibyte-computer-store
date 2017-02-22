@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStocksTable extends Migration
+class AddAddressesForeignKeys extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateStocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('stocks', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('quantity');
-            $table->timestamps();
+        Schema::table('addresses', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')
+              ->onDelete('cascade');
         });
     }
 
@@ -27,6 +26,8 @@ class CreateStocksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stocks');
+        Schema::table('addresses', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
     }
 }

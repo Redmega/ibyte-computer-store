@@ -13,6 +13,6 @@ class Stock extends Model
     * @return Product
     */
     public function product() {
-        return $this->hasOne(Models\Product::class);
+        return $this->belongsTo(Models\Product::class);
     }
 }

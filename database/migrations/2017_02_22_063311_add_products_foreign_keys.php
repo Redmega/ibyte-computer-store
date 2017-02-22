@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTestListTable extends Migration
+class AddProductsForeignKeys extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateTestListTable extends Migration
      */
     public function up()
     {
-          Schema::create('test_lists', function (Blueprint $table) {
-              $table->increments('id');
-              $table->string('name');
-              $table->timestamps();
-          });
+        Schema::table('products', function (Blueprint $table) {
+            $table->foreign('stock_id')->references('id')->on('stocks')
+              ->onDelete('cascade');
+        });
     }
 
     /**
@@ -27,6 +26,8 @@ class CreateTestListTable extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('test_lists');
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropForeign(['stock_id']);
+        });
     }
 }

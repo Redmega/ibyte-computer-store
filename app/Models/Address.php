@@ -13,6 +13,6 @@ class Address extends Model
     * @return User
     */
     public function user() {
-        return $this->hasOne(Models\User::class);
+        return $this->belongsTo(Models\User::class);
     }
 }
