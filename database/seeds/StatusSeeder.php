@@ -13,6 +13,9 @@ class StatusSeeder extends Seeder
     public function run()
     {
         DB::table('statuses')->insert([
+            ['code' => 'USER',
+            'name' => 'Choosing',
+            'description'=> 'The order is not yet created.']
             ['code' => 'PROC',
             'name' => 'Processing',
             'description' => 'The order is being processed and parts are being gathered.'],
