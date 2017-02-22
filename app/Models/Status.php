@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models as Models;
 
 final class Status extends Model
 {
     public $timestamps = false;
-    
+
     /**
     * Get the orders which have this Status
     * Used in the Admin panel to look at orders.
@@ -16,7 +17,7 @@ final class Status extends Model
     */
     /*
     public function orders() {
-        return $this->belongsTo('App\Models\Order');
+        return $this->belongsTo('Models\Order');
     }
     */
 }

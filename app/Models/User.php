@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models as Model;
+use App\Models as Models;
 use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
@@ -38,6 +38,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     */
 
     public function addresses() {
-       return $this->hasMany('Model\Address');
+       return $this->hasMany(Models\Address::class);
    }
 }

@@ -3,15 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models as Models;
 
 class Stock extends Model
 {
-      /**
-      * Get the product.
-      *
-      * @return User
-      */
-      public function product() {
-          return $this->hasOne('Model\Product');
-      }
+    /**
+    * Get the product.
+    *
+    * @return Product
+    */
+    public function product() {
+        return $this->hasOne(Models\Product::class);
+    }
 }

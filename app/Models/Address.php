@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
-use App\Models as Model;
 use Illuminate\Database\Eloquent\Model;
+use App\Models as Models;
 
 class Address extends Model
 {
     /**
-    * Get the addresses user.
+    * Get the user
     *
     * @return User
     */
     public function user() {
-        return $this->hasOne('Model\User');
+        return $this->hasOne(Models\User::class);
     }
 }
