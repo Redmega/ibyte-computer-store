@@ -1,6 +1,8 @@
 <?php
 
-use App\Models as Model;
+use App\Models as Models;
+
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,28 +16,18 @@ use App\Models as Model;
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(Model\User::class, function (Faker\Generator $faker) {
-    static $password;
-
+$factory->define(Models\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'password' => Hash::make(str_random(8)),
         'remember_token' => str_random(10),
     ];
 });
 
-$factory->define(Model\Test::class, function (Faker\Generator $faker) {
-  return [
-    'code' => $faker->randomNumber(4),
-    'title' => $faker->sentence(4),
-    'email' => $faker->safeEmail,
-    'message' => $faker->text(500),
-  ];
-});
+$factory->defineAs(Models\User::class, 'admin', function ($faker) use ($factory) {
+    $user = $factory->raw(Models\User::class);
 
-$factory->define(Model\TestList::class, function (Faker\Generator $faker) {
-  return [
-    'name' => $faker->name,
-  ];
+    return array_merge($user, ['admin' => true]);
 });
