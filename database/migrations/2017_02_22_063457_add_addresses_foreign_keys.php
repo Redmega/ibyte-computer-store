@@ -16,6 +16,8 @@ class AddAddressesForeignKeys extends Migration
         Schema::table('addresses', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')
               ->onDelete('cascade');
+            $table->foreign('order_id')->references('id')->on('orders')
+              ->onDelete('set null');
         });
     }
 
@@ -28,6 +30,7 @@ class AddAddressesForeignKeys extends Migration
     {
         Schema::table('addresses', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
+            $table->dropForeign(['order_id']);
         });
     }
 }

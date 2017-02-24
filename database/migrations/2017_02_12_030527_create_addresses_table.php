@@ -23,6 +23,7 @@ class CreateAddressesTable extends Migration
             $table->string('zipcode');
             $table->string('country');
             $table->string('type');
+            $table->integer('order_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->unique(['id', 'user_id','street','unit']);

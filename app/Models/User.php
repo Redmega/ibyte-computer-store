@@ -36,8 +36,16 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     *
     * @return Address[]
     */
-
     public function addresses() {
-       return $this->hasMany(Models\Address::class);
-   }
+        return $this->hasMany(Models\Address::class);
+    }
+
+    /**
+    * Get the users' orders
+    *
+    * @return Order[]
+    */
+    public function orders() {
+        return $this->hasMany(Models\Order::class);
+    }
 }

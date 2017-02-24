@@ -13,7 +13,7 @@ class Order extends Model
     * @return Status
     */
     public function status() {
-        return $this->hasOne(Models\Status::class);
+        return $this->belongsTo(Models\Status::class);
     }
 
     /**
@@ -31,6 +31,15 @@ class Order extends Model
     * @return User
     */
     public function user() {
-        return $this->hasOne(Models\User::class);
+        return $this->belongsTo(Models\User::class);
+    }
+
+    /**
+    * Get the address
+    *
+    * @return Address
+    */
+    public function address() {
+        return $this->hasOne(Models\Address::class);
     }
 }

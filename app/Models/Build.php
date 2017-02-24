@@ -15,4 +15,13 @@ class Build extends Model
     public function products() {
         return $this->hasMany(Models\Product::class);
     }
+
+    /**
+    * Get the build's order
+    *
+    * @return Order;
+    */
+    public function order() {
+        return $this->belongsTo(Models\Order::class);
+    }
 }

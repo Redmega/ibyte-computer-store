@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('build_id')->unsigned();
             $table->integer('status_id')->unsigned();
+            $table->boolean('payment_status')->default(false);
             $table->timestamps();
         });
     }
