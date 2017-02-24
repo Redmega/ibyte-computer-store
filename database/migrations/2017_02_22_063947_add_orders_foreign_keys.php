@@ -16,8 +16,6 @@ class AddOrdersForeignKeys extends Migration
         Schema::table('orders', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')
               ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('build_id')->references('id')->on('builds')
-              ->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('status_id')->references('id')->on('statuses');
         });
     }
@@ -31,7 +29,6 @@ class AddOrdersForeignKeys extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
-            $table->dropForeign(['build_id']);
             $table->dropForeign(['status_id']);
         });
     }

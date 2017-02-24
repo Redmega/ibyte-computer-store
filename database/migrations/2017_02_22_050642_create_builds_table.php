@@ -15,6 +15,7 @@ class CreateBuildsTable extends Migration
     {
         Schema::create('builds', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('order_id')->unsigned();
             $table->integer('tow_id')->unsigned()->nullable();
             $table->integer('cpu_id')->unsigned()->nullable();
             $table->integer('gpu_id')->unsigned()->nullable();
