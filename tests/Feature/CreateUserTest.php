@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Feature;
+namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
@@ -17,7 +17,7 @@ class CreateUserTest extends TestCase
     /**
     * A basic test example.
     *
-    * @return void
+    * @depends Tests\Feature\ConnectToDatabase::testDatabaseConnection
     */
     public function testCreateUser()
     {
