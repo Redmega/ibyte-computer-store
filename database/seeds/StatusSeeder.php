@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class StatusSeeder extends Seeder
 {
@@ -15,7 +14,7 @@ class StatusSeeder extends Seeder
         DB::table('statuses')->insert([
             ['code' => 'USER',
             'name' => 'Choosing',
-            'description'=> 'The order is not yet created.']
+            'description'=> 'The order is not yet created.'],
             ['code' => 'PROC',
             'name' => 'Processing',
             'description' => 'The order is being processed and parts are being gathered.'],
