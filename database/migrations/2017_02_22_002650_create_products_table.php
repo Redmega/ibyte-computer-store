@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->integer('stock_id')->unsigned()->unique();
             $table->string('name');
+            $table->string('image_url');
             $table->text('description');
             $table->decimal('price',5,2);
             $table->decimal('salePrice',5,2);
