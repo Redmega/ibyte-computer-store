@@ -12,5 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
+});
+
+Route::get('/login', function () {
+    return view('pages.login');
+});
+
+Route::get('/checkout', function() {
+    return view('pages.checkout');
+});
+
+Route::get('/assembly', function () {
+    return view('pages.assembly');
+});
+
+Route::get('/quiz', function() {
+    return view('pages.quiz');
 });
