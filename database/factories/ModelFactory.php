@@ -31,3 +31,14 @@ $factory->defineAs(Models\User::class, 'admin', function ($faker) use ($factory)
 
     return array_merge($user, ['admin' => true]);
 });
+
+$factory->define(Models\Address::class, function (Faker\Generator $faker) {
+  return [
+    'street' => $faker->buildingNumber . ' ' . $faker->streetName,
+    'unit' => $faker->secondaryAddress,
+    'city' => $faker->city,
+    'state' => $faker->stateAbbr,
+    'zipcode' => $faker->postcode,
+    'country' => 'USA',
+  ];
+});
