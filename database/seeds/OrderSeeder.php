@@ -12,12 +12,11 @@ class OrderSeeder extends Seeder
     public function run()
     {
       DB::table('orders')->insert(array(
-            array('id'=>'john','user_id'=>1,'status_id'=>1,'payment_status'=>true, timestamps),
-            array('id'=>'kane','user_id'=>2,'status_id'=>2,'payment_status'=>true,timestamps),
-            array('id'=>'bill','user_id'=>3,'status_id'=>3,'payment_status'=>false,timestamps),
-            array('id'=>'jonson','user_id'=>4,'status_id'=>4,'payment_status'=>true,timestamps),
-            array('id'=>'jackson','user_id'=>5,'status_id'=>5,'payment_status'=>false,timestamps),
-            
+            array('user_id'=>1,'status_id'=>1,'payment_status'=>true, timestamps),
+            array('user_id'=>2,'status_id'=>2,'payment_status'=>true,timestamps),
+            array('user_id'=>3,'status_id'=>3,'payment_status'=>false,timestamps),
+            array('user_id'=>4,'status_id'=>4,'payment_status'=>true,timestamps),
+            array('user_id'=>5,'status_id'=>5,'payment_status'=>false,timestamps),
          ));
     }
 }
