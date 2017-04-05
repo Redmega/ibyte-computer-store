@@ -42,3 +42,12 @@ $factory->define(Models\Address::class, function (Faker\Generator $faker) {
     'country' => 'USA',
   ];
 });
+
+$factory->define(Models\Order::class, function (Faker\Generator $faker) {
+  return [
+    'status_code' => $faker->randomElement(
+      ['USER','PROC','ASSM','PACK','WAIT','SHIP','DONE','RETN']
+    ),
+    'payment_status' => $faker->boolean,
+  ];
+});
