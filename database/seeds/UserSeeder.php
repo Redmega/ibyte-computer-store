@@ -21,12 +21,12 @@ class UserSeeder extends Seeder
         ]));
         $u->orders()->save(factory(Order::class)->make());
       });
-      factory(User::class)->create(
-        ['email'=>'admin@example.com',
+      factory(User::class)->create([
+        'email'=>'admin@example.com',
         'first_name'=>'Admin',
         'last_name'=>'Admin',
         'password'=>Hash::make("password"),
-        'admin'=>true]
-      );
+        'admin'=>true
+      ]);
     }
   }
