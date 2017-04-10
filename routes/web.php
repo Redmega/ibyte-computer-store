@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use App\Models\Order;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +27,12 @@ Route::get('/checkout', function() {
 });
 
 Route::get('/assembly', function () {
-    return view('pages.assembly');
+
+  $User = App\Models\User::all();
+  $Order = App\Models\Order::all();
+
+
+    return view('pages.assembly', ['User' => $User], ['Order' => $Order]);
 });
 
 Route::get('/quiz', function() {
