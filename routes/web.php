@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Product;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +27,8 @@ Route::get('/checkout', function() {
 });
 
 Route::get('/assembly', function () {
-    return view('pages.assembly');
+$Product = App\Models\Product::all();
+    return view('pages.assembly', [ 'Products' => $Product]);
 });
 
 Route::get('/quiz', function() {

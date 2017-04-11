@@ -10,8 +10,7 @@
             <div class="col s6 input-field offset-s3">
                 <select >
                     <option value="" disabled selected>Choose your option</option>
-                    <option value="1">Tower & Motherboard 1</option>
-                    <option value="2">Tower & Motherboard 2</option>
+                    <option value="$Product"></option>
                 </select>
                 <label>Tower & Motherboard</label>
             </div>
