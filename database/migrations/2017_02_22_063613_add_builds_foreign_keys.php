@@ -18,7 +18,6 @@ class AddBuildsForeignKeys extends Migration
             * Enable foreign key constraints on products. A product cannot be
             * deleted if a build exists which contains it.
             */
-            $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('tow_id')->references('id')->on('products');
             $table->foreign('cpu_id')->references('id')->on('products');
             $table->foreign('gpu_id')->references('id')->on('products');
@@ -37,7 +36,6 @@ class AddBuildsForeignKeys extends Migration
     public function down()
     {
         Schema::table('builds', function (Blueprint $table) {
-            $table->dropForeign(['order_id']);
             $table->dropForeign(['tow_id']);
             $table->dropForeign(['cpu_id']);
             $table->dropForeign(['gpu_id']);

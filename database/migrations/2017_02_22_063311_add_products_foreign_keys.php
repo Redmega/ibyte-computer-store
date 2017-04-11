@@ -14,8 +14,6 @@ class AddProductsForeignKeys extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->foreign('stock_id')->references('id')->on('stocks')
-              ->onDelete('cascade');
         });
     }
 
@@ -26,8 +24,5 @@ class AddProductsForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign(['stock_id']);
-        });
     }
 }

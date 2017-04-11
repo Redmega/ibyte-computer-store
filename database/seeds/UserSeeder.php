@@ -3,6 +3,7 @@
 use App\Models\User;
 use App\Models\Address;
 use App\Models\Order;
+use App\Models\Build;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -20,6 +21,11 @@ class UserSeeder extends Seeder
         'type' => 'shipping',
         ]));
         $u->orders()->save(factory(Order::class)->make());
+      });
+      User::each(function($user, $key) {
+        factory(Build::class)->create([
+          'order_id' => $user->orders()->first()->id,
+        ]);
       });
       factory(User::class)->create([
         'email'=>'admin@example.com',

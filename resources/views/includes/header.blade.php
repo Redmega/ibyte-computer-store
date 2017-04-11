@@ -12,7 +12,7 @@
 </ul>
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper padding-sides">
-        <a href="{{ url('/') }}" class="brand-logo center">{{ config('app.name', 'iByte') }}</a>
+        <a href="{{ url('/') }}" class="brand-logo left">{{ config('app.name', 'iByte') }}</a>
         <ul class="right">
             @if (Auth::guest())
                 <li><a href="{{ route('login') }}">Login</a></li>
@@ -30,10 +30,10 @@
             <li><a href="/assembly">Assemble</a></li>
             <li><a href="/quiz">Personalize</a></li>
         </ul>
-        <ul id="nav-mobile" class="side-nav">
+        <ul id="nav-mobile" class="side-nav right">
             <li><a href="/assembly">Assemble</a></li>
             <li><a href="/quiz">Personalize</a></li>
         </ul>
-        <a href="#" data-activates="nav-mobile" class="left button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" data-activates="nav-mobile" class="right button-collapse"><i class="material-icons">menu</i></a>
     </div>
 </nav>

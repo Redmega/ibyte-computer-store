@@ -42,4 +42,11 @@ class Order extends Model
     public function address() {
         return $this->hasOne(Models\Address::class);
     }
+
+    public function subtotal() {
+      $subtotal = $this->build->products()->reduce(function($c, $p) {
+        return $c + $p->salePrice;
+      }, 0);
+      return $subtotal;
+    }
 }
