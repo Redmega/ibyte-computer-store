@@ -18,6 +18,7 @@
                         value="{{$product->id}}">{{$product->name}}</option>
                     @endforeach
                 </select>
+                <label>Tower & Motherboard</label>
             </div>
         </div>
         <div class="row">
