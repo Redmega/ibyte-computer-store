@@ -1,12 +1,8 @@
 <?php
 
-<<<<<<< HEAD
 use App\Models\Product;
-
-=======
 use App\Models\User;
 use App\Models\Order;
->>>>>>> 2da0c100053c46b1b464465f244bff3d013b89e4
 /*
 |--------------------------------------------------------------------------
 | Web Routes
