@@ -13,7 +13,15 @@ class Build extends Model
     * @return Product[]
     */
     public function products() {
-        return $this->hasMany(Models\Product::class);
+      return collect([
+        Models\Product::where('id', $this->tow_id)->first(),
+        Models\Product::where('id', $this->cpu_id)->first(),
+        Models\Product::where('id', $this->gpu_id)->first(),
+        Models\Product::where('id', $this->psu_id)->first(),
+        Models\Product::where('id', $this->hdd_id)->first(),
+        Models\Product::where('id', $this->ssd_id)->first(),
+        Models\Product::where('id', $this->ram_id)->first()
+      ]);
     }
 
     /**

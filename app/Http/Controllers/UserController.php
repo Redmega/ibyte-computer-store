@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     /**
+    * Instantiate a new controller instance.
+    *
+    *@return void
+    */
+    public function __construct()
+    {
+      $this->middleware('auth');
+      $this->middleware('log');
+      $this->middleware('subscribed')->except('store');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -15,6 +26,11 @@ class UserController extends Controller
     public function index()
     {
         //
+        $users = User::all();
+
+        //load the view and pass the nerds
+        return View::make('user.index')
+            ->with('user', $users);
     }
 
     /**
@@ -25,6 +41,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        return View::make('user.create');
     }
 
     /**
@@ -36,6 +53,28 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $rules = array(
+
+          'email' => 'required|email',
+          'password' => 'required|password'
+
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        if($validator->fails()){
+          return Redirect::to('user.create')
+              ->withErrors($validator)
+              ->withInput(Input::except('password'));
+        } else {
+            $user = new User;
+            $user->name     = Input::get('name');
+            $user->email    = Input::get('email');
+            $user->password = Input::get('password');
+            $nerd->save();
+
+            Session::flash('message', 'Successfully created user!');
+            return Redirect::to('user');
+        }
     }
 
     /**
@@ -44,9 +83,10 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
         //
+        return view('user.profile', ['user' => User::findOrFail($id)]);
     }
 
     /**

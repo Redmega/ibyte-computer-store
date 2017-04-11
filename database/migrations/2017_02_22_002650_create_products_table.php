@@ -15,7 +15,6 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('stock_id')->unsigned()->unique();
             $table->string('name');
             $table->string('image_url');
             $table->text('description');

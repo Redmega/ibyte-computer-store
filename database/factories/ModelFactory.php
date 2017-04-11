@@ -46,8 +46,20 @@ $factory->define(Models\Address::class, function (Faker\Generator $faker) {
 $factory->define(Models\Order::class, function (Faker\Generator $faker) {
   return [
     'status_code' => $faker->randomElement(
-      ['USER','PROC','ASSM','PACK','WAIT','SHIP','DONE','RETN']
+      ['PROC','ASSM','PACK','WAIT','SHIP','DONE','RETN']
     ),
     'payment_status' => $faker->boolean,
+  ];
+});
+
+$factory->define(Models\Build::class, function (Faker\Generator $faker) {
+  return [
+    'tow_id' => $faker->randomElement(Models\Product::where('type', 'TOW')->get()->all())->id,
+    'cpu_id' => $faker->randomElement(Models\Product::where('type', 'CPU')->get()->all())->id,
+    'gpu_id' => $faker->randomElement(Models\Product::where('type', 'GPU')->get()->all())->id,
+    'psu_id' => $faker->randomElement(Models\Product::where('type', 'PSU')->get()->all())->id,
+    'hdd_id' => $faker->randomElement(Models\Product::where('type', 'HDD')->get()->all())->id,
+    'ssd_id' => $faker->randomElement(Models\Product::where('type', 'SSD')->get()->all())->id,
+    'ram_id' => $faker->randomElement(Models\Product::where('type', 'RAM')->get()->all())->id,
   ];
 });

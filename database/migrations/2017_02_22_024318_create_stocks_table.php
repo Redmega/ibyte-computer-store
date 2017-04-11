@@ -15,6 +15,7 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('product_id')->unsigned()->unique();
             $table->integer('quantity');
             $table->timestamps();
         });
