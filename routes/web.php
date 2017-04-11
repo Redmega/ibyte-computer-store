@@ -29,8 +29,11 @@ Route::group(['prefix' => 'admin'], function() {
 
 Route::resource('products','ProductController');
 
-Route::get('/checkout', function() {
-    return view('pages.checkout');
+Route::get('checkout', function() {
+    $products = App\Models\Product::all();
+    return view('pages.checkout',
+      [ 'products' => $products]
+    );
 });
 
 Route::get('assembly', function (Request $request) {
@@ -38,7 +41,7 @@ Route::get('assembly', function (Request $request) {
     return view('pages.assembly',
     [ 'products' => $products,
       'readonly' => $request->input('readonly') or false,
-      'build_id' => $request->input('build_id') or null
+      'build_id' => $request->input('build_id') or null,
     ]
   );
 })->name('assembly');

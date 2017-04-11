@@ -72,7 +72,7 @@ class ProductSeeder extends Seeder
          'image_url'=>'https://images10.newegg.com/productimage/22-236-243-06.jpg?ex=2',
          'description'=>'The Western Digital 1TB VelociRaptor is designed for speed and speed only. Fast access for games and when video editing.',
          'price'=>149.79, 'salePrice'=>44.93, 'type'=>'HDD'],
-         ['id'=>16,'name'=>'Intel 750 SDD 400GB',
+         ['id'=>16,'name'=>'Intel 750 SSD 400GB',
          'image_url'=>'https://images10.newegg.com/productimage/20-167-359-02.jpg?ex=2',
          'description'=>'The Intel SSD 750 Series targeted at PC Enthusiasts and Workstation users. PCIe represents the future of the computing storage.',
          'price'=>324.99, 'salePrice'=>97.50, 'type'=>'SSD'],

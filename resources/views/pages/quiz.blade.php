@@ -159,7 +159,8 @@
 
             <div class = "row">
                 <div class = "col s12 center-align ">
-                    <a class="waves-effect wave-light btn"><i class = "material-icons left">send</i><span>SUBMIT</span></a>
+                    <a class="waves-effect wave-light btn" href="{{url('/checkout')}}">
+                      <i class = "material-icons left">send</i><span>SUBMIT</span></a>
                 </div>
             </div>
         </div>
