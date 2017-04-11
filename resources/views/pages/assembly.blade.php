@@ -8,16 +8,17 @@
     <div class="section">
         <div class="row">
             <div class="col s6 input-field offset-s3">
-                <select >
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="$Product"></option>
+              <div class="form-group">
+                <label for="">Towers and Motherboards></label>
+                  <select class="form-control input-sm name="">
+                  <option value"{{$Product->id}}"></option>"
                 </select>
-                <label>Tower & Motherboard</label>
             </div>
         </div>
         <div class="row">
             <div class="col s6 input-field offset-s3">
                 <select >
+                  {{ Form::select('company_id', $company_lists) }}
                     <option value="" disabled selected>Choose your option</option>
                     <option value="CPU2">CPU 1</option>
                     <option value="CPU2">CPU 2</option>
