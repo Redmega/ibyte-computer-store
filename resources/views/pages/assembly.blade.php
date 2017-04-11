@@ -11,30 +11,18 @@
     <div class="section">
         <div class="row">
             <div class="col s6 input-field offset-s3">
-<<<<<<< HEAD
-              <div class="form-group">
-                <label for="">Towers and Motherboards></label>
-                  <select class="form-control input-sm name="">
-                  <option value"{{$Product->id}}"></option>"
-=======
                 <select id="tower-select">
                     <option value="" disabled selected>Choose your option</option>
                     @foreach ($products->where('type', 'TOW') as $product)
                     <option {{ !empty($build_id) ? ($build->tow_id == $product->id ? 'selected': '') : ''}}
                         value="{{$product->id}}">{{$product->name}}</option>
                     @endforeach
->>>>>>> d3da2966f258036ce76f8b5b8c0d25fca175f876
                 </select>
             </div>
         </div>
         <div class="row">
             <div class="col s6 input-field offset-s3">
-<<<<<<< HEAD
-                <select >
-                  {{ Form::select('company_id', $company_lists) }}
-=======
                 <select id="cpu-select">
->>>>>>> d3da2966f258036ce76f8b5b8c0d25fca175f876
                     <option value="" disabled selected>Choose your option</option>
                     @foreach ($products->where('type', 'CPU') as $product)
                         <option {{ !empty($build_id) ? ($build->cpu_id == $product->id ? 'selected': '') : ''}}
