@@ -38,11 +38,11 @@
                                 <label>Quantity</label>
                             </div>
                             <div class="input-field">
-                                <input name="price" type="number" value="{{$product->stock->quantity}}">
+                                <input name="price" type="number" value="{{$product->price}}">
                                 <label>Price</label>
                             </div>
                             <div class="input-field">
-                                <input name="salePrice" type="number" value="{{$product->stock->quantity}}">
+                                <input name="salePrice" type="number" value="{{$product->salePrice}}">
                                 <label>salePrice</label>
                             </div>
                         </div>
