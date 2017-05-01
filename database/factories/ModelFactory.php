@@ -1,6 +1,8 @@
 <?php
 
-use App\Models as Model;
+use App\Models as Models;
+
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,28 +16,50 @@ use App\Models as Model;
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(Model\User::class, function (Faker\Generator $faker) {
-    static $password;
-
+$factory->define(Models\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'password' => Hash::make(str_random(8)),
+        'remember_token' => null,
     ];
 });
 
-$factory->define(Model\Test::class, function (Faker\Generator $faker) {
+$factory->defineAs(Models\User::class, 'admin', function ($faker) use ($factory) {
+    $user = $factory->raw(Models\User::class);
+
+    return array_merge($user, ['admin' => true]);
+});
+
+$factory->define(Models\Address::class, function (Faker\Generator $faker) {
   return [
-    'code' => $faker->randomNumber(4),
-    'title' => $faker->sentence(4),
-    'email' => $faker->safeEmail,
-    'message' => $faker->text(500),
+    'street' => $faker->buildingNumber . ' ' . $faker->streetName,
+    'unit' => $faker->secondaryAddress,
+    'city' => $faker->city,
+    'state' => $faker->stateAbbr,
+    'zipcode' => $faker->postcode,
+    'country' => 'USA',
   ];
 });
 
-$factory->define(Model\TestList::class, function (Faker\Generator $faker) {
+$factory->define(Models\Order::class, function (Faker\Generator $faker) {
   return [
-    'name' => $faker->name,
+    'status_code' => $faker->randomElement(
+      ['PROC','ASSM','PACK','WAIT','SHIP','DONE','RETN']
+    ),
+    'payment_status' => $faker->boolean,
+  ];
+});
+
+$factory->define(Models\Build::class, function (Faker\Generator $faker) {
+  return [
+    'tow_id' => $faker->randomElement(Models\Product::where('type', 'TOW')->get()->all())->id,
+    'cpu_id' => $faker->randomElement(Models\Product::where('type', 'CPU')->get()->all())->id,
+    'gpu_id' => $faker->randomElement(Models\Product::where('type', 'GPU')->get()->all())->id,
+    'psu_id' => $faker->randomElement(Models\Product::where('type', 'PSU')->get()->all())->id,
+    'hdd_id' => $faker->randomElement(Models\Product::where('type', 'HDD')->get()->all())->id,
+    'ssd_id' => $faker->randomElement(Models\Product::where('type', 'SSD')->get()->all())->id,
+    'ram_id' => $faker->randomElement(Models\Product::where('type', 'RAM')->get()->all())->id,
   ];
 });

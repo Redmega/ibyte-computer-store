@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models as Model;
 
-class TestListSeeder extends Seeder
+class OrderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +11,5 @@ class TestListSeeder extends Seeder
      */
     public function run()
     {
-      factory(Model\TestList::class, 50)->create();
     }
 }

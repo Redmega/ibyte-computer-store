@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+* This migration is needed to create the sessions table to hold user session
+* data. This is only necessary if SESSION_DRIVER=database
+*/
 class CreateSessionsTable extends Migration
 {
     /**
