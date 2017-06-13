@@ -11,7 +11,7 @@ To set up your workspace either use the Homestead VM or ensure XAMPP is installe
 3. run `cp .env.example .env`
 4. modify .env using your local database info and the configuration info found on freedCamp
 5. run `php artisan migrate --seed`
-6. ensure that laravel has write and read access to `/bootstrap/cache` and `/storage/`. You can do so by running `chmod `
+6. ensure that laravel has write and read access to `/bootstrap/cache` and `/storage/`. You can do so by running `chmod...`
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 

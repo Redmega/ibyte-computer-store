@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
+use App\Models as Models;
 use Illuminate\Auth\Authenticatable;
-use Laravel\Lumen\Auth\Authorizable;
+use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -18,7 +19,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'first_name', 'last_name', 'email', 'admin', 'password'
     ];
 
     /**
@@ -29,4 +30,22 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+
+    /**
+    * Get the users' addresses
+    *
+    * @return Address[]
+    */
+    public function addresses() {
+        return $this->hasMany(Models\Address::class);
+    }
+
+    /**
+    * Get the users' orders
+    *
+    * @return Order[]
+    */
+    public function orders() {
+        return $this->hasMany(Models\Order::class);
+    }
 }
