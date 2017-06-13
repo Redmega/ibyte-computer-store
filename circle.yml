@@ -10,3 +10,6 @@ machine:
 dependencies:
   post:
     - php artisan migrate --seed --force --no-interaction --env=testing
+test:
+  override:
+    - /vendor/bin/phpunit
