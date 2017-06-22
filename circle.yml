@@ -1,0 +1,18 @@
+machine:
+  timezone:
+    America/New_York
+  php:
+    version: 7.0.7
+  node:
+    version: 6.1.0
+  environment:
+    APP_ENV: testing
+dependencies:
+  override:
+    - composer install
+  post:
+    - php artisan migrate --seed --force --no-interaction --env=testing
+test:
+  override:
+    - ./vendor/bin/phpunit --coverage-clover=coverage.xml
+    - bash <(curl -s https://codecov.io/bash)
