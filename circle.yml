@@ -8,6 +8,8 @@ machine:
   environment:
     APP_ENV: testing
 dependencies:
+  override:
+    - composer install
   post:
     - php artisan migrate --seed --force --no-interaction --env=testing
 test:
