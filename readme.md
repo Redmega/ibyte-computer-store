@@ -1,6 +1,7 @@
 # iByte Computer Store
 
 [![CircleCI](https://circleci.com/gh/Redmega/ibyte-computer-store.svg?style=shield&circle-token=ef3cc4c8502a446dadd64db412f936b9ec58efbf)](https://circleci.com/gh/Redmega/ibyte-computer-store)
+[![codecov](https://codecov.io/gh/Redmega/ibyte-computer-store/branch/develop/graph/badge.svg)](https://codecov.io/gh/Redmega/ibyte-computer-store)
 
 Welcome to iByte Computer Store's Web App.
 
