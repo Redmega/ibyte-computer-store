@@ -12,4 +12,5 @@ dependencies:
     - php artisan migrate --seed --force --no-interaction --env=testing
 test:
   override:
-    - ./vendor/bin/phpunit
+    - ./vendor/bin/phpunit --coverage-clover=coverage.xml
+    - bash <(curl -s https://codecov.io/bash)
