@@ -9,6 +9,7 @@ class Status extends Model
 {
     public $timestamps = false;
     protected $primaryKey = 'code';
+    public $incrementing = false;
 
     /**
     * Get the orders which have this Status
