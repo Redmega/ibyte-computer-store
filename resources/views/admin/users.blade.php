@@ -35,7 +35,7 @@
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script>
     var users = {!! json_encode($users) !!};
-    console.log(users);
+    
     jQuery((function($){
       $('#user-table').DataTable({
         data: users,

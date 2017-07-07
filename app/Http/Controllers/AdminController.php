@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -46,8 +47,12 @@ class AdminController extends Controller
   public function orders()
   {
     $orders = Order::all();
+    $statuses = Status::orderBy('order','asc')->get();
 
-    return view('admin.orders', ['orders' => $orders]);
+    return view('admin.orders', [
+        'orders' => $orders,
+        'statuses' => $statuses,
+    ]);
   }
 
   public function inventory($type = null)
