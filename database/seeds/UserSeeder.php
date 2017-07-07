@@ -28,6 +28,12 @@ class UserSeeder extends Seeder
         ]);
       });
       factory(User::class)->create([
+        'email'=>'banme@example.com',
+        'first_name'=>'Ban',
+        'last_name'=>'Me',
+        'password'=>Hash::make("password"),
+      ]);
+      factory(User::class)->create([
         'email'=>'admin@example.com',
         'first_name'=>'Admin',
         'last_name'=>'Admin',
