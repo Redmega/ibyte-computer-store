@@ -65,4 +65,12 @@ Route::post('/banUser', function(Request $request) {
   return back();
 })->name('banUser');
 
+Route::post('/modifyOrder', function(Request $request) {
+  $order = App\Models\Order::where('id',$request->id)->first();
+  $order->status_code = $request->status_code;
+  $order->payment_status = $request->payment_status;
+  $order->save();
+  return back();
+})->name('modifyOrder');
+
 Route::get('user/{id}', 'UserController@show');

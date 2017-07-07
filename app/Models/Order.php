@@ -7,6 +7,9 @@ use App\Models as Models;
 
 class Order extends Model
 {
+
+  protected $with = ['status', 'user', 'build'];
+
     /**
     * Get the status
     *
