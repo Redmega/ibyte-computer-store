@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
+Route::resource('products','ProductController');
+
 Route::group(['prefix' => 'admin'], function() {
   Route::get('/', ['as' => 'admin/index', 'uses' => 'AdminController@index']);
   Route::get('orders', ['as' => 'admin/orders', 'uses' => 'AdminController@orders']);
@@ -27,27 +29,40 @@ Route::group(['prefix' => 'admin'], function() {
   Route::get('finance', ['as' => 'admin/finance', 'uses' => 'AdminController@finance']);
 });
 
-Route::resource('products','ProductController');
+Route::middleware(['banned'])->group(function() {
 
-Route::get('checkout', function() {
-    $products = App\Models\Product::all();
-    return view('pages.checkout',
-      [ 'products' => $products]
+  Route::get('checkout', function() {
+      $products = App\Models\Product::all();
+      return view('pages.checkout',
+        [ 'products' => $products ]
+      );
+  });
+
+  Route::get('assembly', function (Request $request) {
+      $products = App\Models\Product::all();
+      return view('pages.assembly',
+      [ 'products' => $products,
+        'readonly' => $request->input('readonly') or false,
+        'build_id' => $request->input('build_id') or null,
+      ]
     );
+  })->name('assembly');
+
+  Route::get('/quiz', function() {
+      return view('pages.quiz');
+  });
+
 });
 
-Route::get('assembly', function (Request $request) {
-    $products = App\Models\Product::all();
-    return view('pages.assembly',
-    [ 'products' => $products,
-      'readonly' => $request->input('readonly') or false,
-      'build_id' => $request->input('build_id') or null,
-    ]
-  );
-})->name('assembly');
-
-Route::get('/quiz', function() {
-    return view('pages.quiz');
+Route::get('/banned', function() {
+    return view('pages.banned');
 });
+
+Route::post('/banUser', function(Request $request) {
+  $user = App\Models\User::where('email', $request->email)->first();
+  $user->banned = true;
+  $user->save();
+  return back();
+})->name('banUser');
 
 Route::get('user/{id}', 'UserController@show');

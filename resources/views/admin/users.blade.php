@@ -4,27 +4,28 @@
 @stop
 @section('content')
     <div class="row" style="padding-top:2rem">
+      <div class="col s12 m6 l4">
+        <form method="POST" role="form" action="{{ route('banUser')}}">
+          {{ csrf_field() }}
+          <div class="input-field">
+              <input id="banUser" name="email" type="email" placeholder="Email Address" value="">
+              <label>Ban User</label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
         <div class="col s12">
             <table id="user-table" class="bordered">
                 <thead>
                     <tr>
                         <th>Email</th>
                         <th>Name</th>
-                        <th>Open Orders</th>
-                        <th>State</th>
+                        <th>Banned?</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($users as $user)
-                        <tr>
-                            <td>{{ $user->email }}</td>
-                            <td>{{$user->first_name}} {{$user->last_name}}</td>
-                            <td>{{ $user->orders()->whereNotIn('status_code',['DONE'])->count()}}</td>
-                            <td>{{ $user->addresses()->first()->state }}
-                        </tr>
-                    @empty
-                        <tr><td colspan="4">No Users</td></tr>
-                    @endforelse
+
                 </tbody>
             </table>
         </div>
@@ -33,8 +34,28 @@
 @section('scripts')
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script>
+    var users = {!! json_encode($users) !!};
+    console.log(users);
     jQuery((function($){
-        $('#user-table').DataTable();
+      $('#user-table').DataTable({
+        data: users,
+        columns: [
+          { data: 'email' },
+          { data: function(row) {
+              return row.first_name + ' ' + row.last_name;
+            }
+          },
+          { data: function(row) {
+              return row.banned ? 'Yes' : 'No';
+            }
+          },
+        ]
+      });
+
+      $('#banUser').on('input', function(e) {
+        this.value = this.value.replace(/[^a-z0-9\.@]/ig, '');
+      });
+
     })(jQuery));
     </script>
 @stop
