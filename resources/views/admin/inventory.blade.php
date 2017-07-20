@@ -23,8 +23,9 @@
 
         @foreach ($products as $product)
             <div class="col s12 m4">
-                <form action="{{ url('products')}}" method="GET">
+                <form action="{{ route('updateInventory')}}" method="POST">
                     {{ csrf_field() }}
+                    <input type="hidden" name="id" value="{{$product->id}}">
                     <div class="row">
                         <div class="col s12">
                             <img style="max-height:170px"
@@ -34,7 +35,7 @@
                                 {{ $product->name }}
                             </h5>
                             <div class="input-field">
-                                <input name="stock" type="number" value="{{$product->stock->quantity}}">
+                                <input name="quantity" type="number" value="{{$product->stock->quantity}}">
                                 <label>Quantity</label>
                             </div>
                             <div class="input-field">

@@ -73,4 +73,7 @@ Route::post('/modifyOrder', function(Request $request) {
   return back();
 })->name('modifyOrder');
 
+Route::post('/updateInventory', 'ProductController@update')
+  ->name('updateInventory');
+
 Route::get('user/{id}', 'UserController@show');

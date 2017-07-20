@@ -15,7 +15,6 @@ class OrderController extends Controller
     public function index()
     {
         //get all the orders
-        $orders
     }
 
     /**
